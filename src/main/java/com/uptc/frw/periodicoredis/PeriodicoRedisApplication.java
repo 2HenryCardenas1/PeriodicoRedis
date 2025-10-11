@@ -7,7 +7,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class PeriodicoRedisApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(PeriodicoRedisApplication.class, args);
+
+
+        SpringApplication.run(PeriodicoRedisApplication.class, args
+
+
+        );
     }
 
 }
