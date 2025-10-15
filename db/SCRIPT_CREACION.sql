@@ -74,19 +74,7 @@ CREATE TABLE Ag_noticia (
         REFERENCES Noticia (id_noticia)
 );
 
--- Entrevista (Periodista - Implicado - Noticia)
-CREATE TABLE Entrevista (
-    id_periodista NUMBER,
-    id_implicado NUMBER,
-    id_noticia NUMBER,
-    CONSTRAINT PK_ENTREVISTA PRIMARY KEY (id_periodista, id_implicado, id_noticia),
-    CONSTRAINT FK_ENTREVISTA_PERIODISTA FOREIGN KEY (id_periodista)
-        REFERENCES Periodista (id_periodista),
-    CONSTRAINT FK_ENTREVISTA_IMPLICADO FOREIGN KEY (id_implicado)
-        REFERENCES Implicado (id_implicado),
-    CONSTRAINT FK_ENTREVISTA_NOTICIA FOREIGN KEY (id_noticia)
-        REFERENCES Noticia (id_noticia)
-);
+
 
 -- ==============================================
 -- INSERTS DE PRUEBA

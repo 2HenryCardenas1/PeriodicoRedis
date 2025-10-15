@@ -10,6 +10,19 @@ public class Interview {
     @Column(name = "id_entrevista")
     private long id;  // llave artificial presente en oracle tambien
 
+    //Relaciones N:1
+    @ManyToOne
+    @JoinColumn(name = "id_periodista")
+    private Journalist journalist;
+
+    @ManyToOne
+    @JoinColumn(name = "id_implicado")
+    private Implicated implicated;
+
+    @ManyToOne
+    @JoinColumn(name = "id_noticia")
+    private New news;
+
     public Interview() {
     }
 

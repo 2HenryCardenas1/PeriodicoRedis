@@ -2,6 +2,8 @@ package com.uptc.frw.periodicoredis.model;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "Periodista")
 public class Journalist {
@@ -17,6 +19,19 @@ public class Journalist {
     private long phone;
     @Column(name = "num_notic")
     private int numNew;
+    //Relacion con entrevistas
+    @OneToMany(mappedBy = "journalist", cascade = CascadeType.ALL)
+    private List<Interview> interviews;
+
+    //Relacion con noticias (tabla intermedia Quien_cubre)
+    @ManyToMany
+    @JoinTable(
+            name = "Quien_cubre",
+            joinColumns = @JoinColumn(name = "id_periodista"),
+            inverseJoinColumns = @JoinColumn(name = "id_noticia")
+    )
+    private List<New> newsCovered;
+
 
     public Journalist() {
     }

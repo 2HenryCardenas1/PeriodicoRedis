@@ -3,6 +3,7 @@ package com.uptc.frw.periodicoredis.model;
 import jakarta.persistence.*;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "Implicado")
@@ -15,6 +16,9 @@ public class Implicated {
     private String name;
     @Column(name = "fecha_nacimiento")
     private Date birthDay;
+    //Relacion con entrevistas
+    @OneToMany(mappedBy = "implicated", cascade = CascadeType.ALL)
+    private List<Interview> interviews;
 
     public Implicated() {
     }

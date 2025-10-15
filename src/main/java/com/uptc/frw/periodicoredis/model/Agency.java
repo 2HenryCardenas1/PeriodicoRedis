@@ -2,6 +2,8 @@ package com.uptc.frw.periodicoredis.model;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "Agencia")
 public class Agency {
@@ -13,6 +15,9 @@ public class Agency {
     private String name;
     @Column(name = "anio_creacion")
     private Integer creationYear;
+    //Relacion con AgNew (N:1)
+    @OneToMany(mappedBy = "agency", cascade = CascadeType.ALL)
+    private List<AgNew> agNews;
 
     public Agency() {
     }

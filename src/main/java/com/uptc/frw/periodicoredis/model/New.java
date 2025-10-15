@@ -2,6 +2,7 @@ package com.uptc.frw.periodicoredis.model;
 
 import jakarta.persistence.*;
 
+import java.util.List;
 import java.util.Date;
 
 @Entity
@@ -18,6 +19,22 @@ public class New {
     @Lob
     @Column(name = "texto")
     private String text;
+    //Noticia relacionada consigo misma
+    @ManyToOne
+    @JoinColumn(name = "id_noticia_relacionada")
+    private New relatedNews;
+
+    //Relación con entrevistas
+    @OneToMany(mappedBy = "news", cascade = CascadeType.ALL)
+    private List<Interview> interviews;
+
+    //Relacion con agencias
+    @OneToMany(mappedBy = "news", cascade = CascadeType.ALL)
+    private List<AgNew> agNews;
+
+    //Relacion con periodistas (quien_cubre)
+    @ManyToMany(mappedBy = "newsCovered")
+    private List<Journalist> journalists;
 
     public New() {
     }

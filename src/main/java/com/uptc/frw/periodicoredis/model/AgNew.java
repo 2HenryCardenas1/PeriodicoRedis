@@ -12,6 +12,14 @@ public class AgNew {
     private Long id;  // llave artificial
     @Column(name = "hora_noticia")
     private LocalTime hourNew;
+    // Relaciones N:1
+    @ManyToOne
+    @JoinColumn(name = "id_agencia")
+    private Agency agency;
+
+    @ManyToOne
+    @JoinColumn(name = "id_noticia")
+    private New news;
 
     public AgNew() {
     }
