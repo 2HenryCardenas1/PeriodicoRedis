@@ -12,12 +12,12 @@ public class New {
     @Column(name = "id_noticia")
     private long id;
     @Column(name = "fecha_hora")
-    private Date fechaHora;
+    private Date date;
     @Column(name = "titular")
-    private String titular;
+    private String headline;
     @Lob
     @Column(name = "texto")
-    private String texto;
+    private String text;
 
     public New() {
     }
@@ -30,37 +30,37 @@ public class New {
         this.id = id;
     }
 
-    public String getTexto() {
-        return texto;
+    public String getText() {
+        return text;
     }
 
-    public void setTexto(String texto) {
-        this.texto = texto;
+    public void setText(String text) {
+        this.text = text;
     }
 
-    public String getTitular() {
-        return titular;
+    public String getHeadline() {
+        return headline;
     }
 
-    public void setTitular(String titular) {
-        this.titular = titular;
+    public void setHeadline(String headline) {
+        this.headline = headline;
     }
 
-    public Date getFechaHora() {
-        return fechaHora;
+    public Date getDate() {
+        return date;
     }
 
-    public void setFechaHora(Date fechaHora) {
-        this.fechaHora = fechaHora;
+    public void setDate(Date date) {
+        this.date = date;
     }
 
     @Override
     public String toString() {
         return "New{" +
                 "id=" + id +
-                ", fechaHora=" + fechaHora +
-                ", titular='" + titular + '\'' +
-                ", texto='" + texto + '\'' +
+                ", date=" + date +
+                ", headline='" + headline + '\'' +
+                ", text='" + text + '\'' +
                 '}';
     }
 }
