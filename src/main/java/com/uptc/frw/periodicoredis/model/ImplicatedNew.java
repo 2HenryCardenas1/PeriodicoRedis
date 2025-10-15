@@ -2,18 +2,16 @@ package com.uptc.frw.periodicoredis.model;
 
 import jakarta.persistence.*;
 
-import java.time.LocalTime;
-
 @Entity
-@Table(name = "Ag_noticia")
-public class AgNew {
+@Table(name = "Implicado_noticia")
+public class ImplicatedNew {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;  // llave artificial
-    @Column(name = "hora_noticia")
-    private LocalTime hourNew;
+    @Column(name = "rol")
+    private String rol;
 
-    public AgNew() {
+    public ImplicatedNew() {
     }
 
     public Long getId() {
@@ -24,21 +22,19 @@ public class AgNew {
         this.id = id;
     }
 
-    public LocalTime getHourNew() {
-        return hourNew;
+    public String getRol() {
+        return rol;
     }
 
-    public void setHourNew(LocalTime hourNew) {
-        this.hourNew = hourNew;
+    public void setRol(String rol) {
+        this.rol = rol;
     }
 
     @Override
     public String toString() {
-        return "AgNew{" +
+        return "ImplicatedNew{" +
                 "id=" + id +
-                ", hourNew=" + hourNew +
+                ", rol='" + rol + '\'' +
                 '}';
     }
 }
-
-
