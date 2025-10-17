@@ -4,6 +4,7 @@ package com.uptc.frw.periodicoredis.service;
 import com.uptc.frw.periodicoredis.model.Agency;
 import com.uptc.frw.periodicoredis.repository.AgencyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,10 +14,12 @@ public class AgencyService {
     @Autowired
     private AgencyRepository agencyRepository;
 
+    @Cacheable(value = "agencyCache", key = "'agencyCache'")
     public List<Agency> findAllAgency() {
         return agencyRepository.findAll();
     }
 
+    @Cacheable(value = "agencyByIdCache", key = "'agencyByIdCache'")
     public Agency getAgencyById(Long id) {
         Agency agency = agencyRepository.findById(id).orElse(null);
         return agency;

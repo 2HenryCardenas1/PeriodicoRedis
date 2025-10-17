@@ -3,6 +3,7 @@ package com.uptc.frw.periodicoredis.service;
 import com.uptc.frw.periodicoredis.model.New;
 import com.uptc.frw.periodicoredis.repository.NewRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,10 +13,13 @@ public class NewService {
     @Autowired
     private NewRepository newRepository;
 
+
+    @Cacheable(value = "newCache", key = "'newCache'")
     public List<New> findAllNew() {
         return newRepository.findAll();
     }
 
+    @Cacheable(value = "newByIdCache", key = "'newByIdCache'")
     public New getNewById(Long id) {
         New aNew = newRepository.findById(id).orElse(null);
         return aNew;
