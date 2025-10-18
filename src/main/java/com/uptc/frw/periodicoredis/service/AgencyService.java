@@ -19,7 +19,7 @@ public class AgencyService {
         return agencyRepository.findAll();
     }
 
-    @Cacheable(value = "agencyByIdCache", key = "'agencyByIdCache'")
+    @Cacheable(value = "agencyByIdCache", key = "'agencyByIdCache_' + #id")
     public Agency getAgencyById(Long id) {
         Agency agency = agencyRepository.findById(id).orElse(null);
         return agency;
